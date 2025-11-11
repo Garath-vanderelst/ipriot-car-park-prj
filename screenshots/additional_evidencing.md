@@ -11,3 +11,9 @@
 | display.py | - | - |
 
 # 2.4 Add stubs for classes
+![Added stubs for classes](stubs-added-for-classes.png)
+
+#2.5.4 Config Class
+
+![Git_Tags](screenshots/git-tags.png)
+
