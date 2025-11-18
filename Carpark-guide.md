@@ -476,17 +476,19 @@ Answer the following questions:
 >
 > 1. **Which class is responsible for each of the following pieces of information (and why)?**
 >    - *The number of available bays*
->      `Answer here...`
+>      `Carpark as it is the is an property of that carpark`
 >    - *The current temperature*
->      `Answer here...`
+>      `Carpark is responsible as it is where the attribute is defined and called from`
+> #TODO fix these 
 >    - *The time*
->      `Answer here...`
+>      `How can you own time? I dont even have it in my program yet`
 >
 > 2. **What is the difference between an attribute and a property?**
->    `Answer here...`
->
+>    `An attribute is a variable that is owned by an instance or the class. These can be called using dot notation ie. carpark.location, whereas a property must be accessed by a setter or getter and therefore is more controlled`
+>#TODO sort q3
 > 3. **Why do you think we used a dictionary to hold the data we passed the display? List at least one advantage and one disadvantage of this approach.**
->    `Answer here...`
+>    `A prime advantage of a dictionary over a list is the fact that it matched pairs, this means we can call the key'temperature' and get the value assigned to it.
+>     `
 
 #### 2.7.5. Add a detect vehicle method to the Sensor class
 
