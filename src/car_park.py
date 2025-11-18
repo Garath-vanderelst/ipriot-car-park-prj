@@ -12,27 +12,48 @@ class CarPark:
     def __str__(self):
         return f'Car park at {self.location}, with {self.capacity} bays.'
 
-    def register(component):
+    def register(self, component):
         """
         Registers Sensors and Displays
         :return:
         """
         if not isinstance(component, (Sensor, Display)):
             raise TypeError("Object must be a sensor or display")
-        if isinstance(component) = Sensor:
+        elif isinstance(component) = Sensor:
             self.sensors.append(component)
         else:
             self.displays.append(component)
 
-
     def add_car(self, plate):
         """
-        Adds a plate to the list of plates
+        Adds a plate to the list of plates after making sure its not already in there
         :param plate:
         :return:
         """
-        self.__plates.append(plate)
+        if plate in self.__plates:
+            pass
+        else:
+            self.__plates.append(plate)
+            self.update_displays()
 
-    def remove_car():
+    def remove_car(self, plate):
+        """
+        Removes plate from list of plates
+        :param plate:
+        :return:
+        """
+        if plate not in self.__plates:
+            pass
+        else:
+            self.__plates.remove(plate)
+            self.update_displays()
+#TODO Check the method for updating the display display.update()
+    def update_displays(self):
+        data = {"available_bays": self.available_bays, "temperature": 21}
+        for display in self.displays:
+            display.update(data)
 
-    def update_displays():
+    @property
+    def available_bays(self):
+        return (max(self.capacity - len(self.__plates), 0))
+
