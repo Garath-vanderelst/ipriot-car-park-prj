@@ -16,7 +16,7 @@ class Sensor(ABC):
         return f'{self.usage()}Sensor{self.id} at {self.car_park} is {sensor_status}'
 
     def _scan_plate(self):
-        return 'FAKE' + format(random.randint(0,999), '03d')
+        return 'FAKE' + format(randint(0,999), '03d')
 
     @abstractmethod
     def update_car_park(self, plate):
