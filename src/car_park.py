@@ -5,7 +5,7 @@ class CarPark:
     def __init__(self, location: str, capacity: int, plates = None, displays = None, sensors = None):
         self.location = location
         self.capacity = capacity
-        self.__plates = plates or []
+        self.plates = plates or []
         self.displays = displays or []
         self.sensors = sensors or []
 
@@ -30,10 +30,10 @@ class CarPark:
         :param plate:
         :return:
         """
-        if plate in self.__plates:
+        if plate in self.plates:
             pass
         else:
-            self.__plates.append(plate)
+            self.plates.append(plate)
             self.update_displays()
 
     def remove_car(self, plate):
@@ -42,10 +42,10 @@ class CarPark:
         :param plate:
         :return:
         """
-        if plate not in self.__plates:
+        if plate not in self.plates:
             pass
         else:
-            self.__plates.remove(plate)
+            self.plates.remove(plate)
             self.update_displays()
 #TODO Check the method for updating the display display.update()
     def update_displays(self):
@@ -55,5 +55,5 @@ class CarPark:
 
     @property
     def available_bays(self):
-        return (max(self.capacity - len(self.__plates), 0))
+        return (max(self.capacity - len(self.plates), 0))
 
