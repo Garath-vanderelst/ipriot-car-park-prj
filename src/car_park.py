@@ -19,7 +19,7 @@ class CarPark:
         """
         if not isinstance(component, (Sensor, Display)):
             raise TypeError("Object must be a sensor or display")
-        elif isinstance(component) = Sensor:
+        elif isinstance(component) == Sensor:
             self.sensors.append(component)
         else:
             self.displays.append(component)
@@ -42,11 +42,8 @@ class CarPark:
         :param plate:
         :return:
         """
-        if plate not in self.plates:
-            pass
-        else:
-            self.plates.remove(plate)
-            self.update_displays()
+        self.plates.remove(plate)
+        self.update_displays()
 #TODO Check the method for updating the display display.update()
     def update_displays(self):
         data = {"available_bays": self.available_bays, "temperature": 21}
