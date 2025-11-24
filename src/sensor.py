@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from random import randint
+import random
 
 class Sensor(ABC):
     def __init__(self, id, is_active, car_park):
@@ -16,7 +16,7 @@ class Sensor(ABC):
         return f'{self.usage()}Sensor{self.id} at {self.car_park} is {sensor_status}'
 
     def _scan_plate(self):
-        return 'FAKE' + format(randint(0,999), '03d')
+        return 'FAKE' + format(random.randint(0,999), '03d')
 
     @abstractmethod
     def update_car_park(self, plate):
@@ -24,7 +24,7 @@ class Sensor(ABC):
 
     def detect_vehicle(self):
         plate_number = self._scan_plate()
-        self.update_car_park(self, plate_number)
+        self.update_car_park(plate_number)
 
 class EntrySensor(Sensor):
     def usage(self):
