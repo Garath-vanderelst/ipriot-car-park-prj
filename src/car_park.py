@@ -2,6 +2,7 @@ from display import Display
 from sensor import Sensor
 from pathlib import Path
 from datetime import datetime
+import json
 
 class CarPark:
     def __init__(self, location: str, capacity: int, log_file = Path('log.txt'), plates = None, displays = None, sensors = None):
@@ -62,6 +63,23 @@ class CarPark:
         now = datetime.now()
         with open (self.log_file, 'a') as log:
             log.write(f'{plate} {action} {now}\n')
+
+    def write_config(self):
+        with open('config.json', 'w'):
+            json.dump({'location': self.location,
+                       'capacity': self.capacity,
+                       'log_file': self.log_file}, f)
+
+    @classmethod
+    def from_config(cls, config_file=Path('config.json')):
+        if isinstance(config_file, Path):
+            config_file = config_file
+        else:
+            config_file = Path(config_file)
+        with open(config_file, 'r') as json_file:
+            config = json.load(json_file)
+
+        return cls(config['location'], config['capacity'], log_file = config['log_file'])
 
     @property
     def available_bays(self):
