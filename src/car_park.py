@@ -55,7 +55,6 @@ class CarPark:
         self.update_displays()
         self._log_car_activity(plate, 'exited')
 
-#TODO Check the method for updating the display display.update()
     def update_displays(self):
         data = {"available_bays": self.available_bays, "temperature": 21}
         for display in self.displays:
